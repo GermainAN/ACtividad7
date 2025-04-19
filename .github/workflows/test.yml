@@ -19,4 +19,4 @@ jobs:
       - name: Run Behave
         run: behave
       - name: Run Pytest
-        run: pytest
+        run: python -m pytest
