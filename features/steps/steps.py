@@ -21,7 +21,7 @@ def step_given_eaten_cukes(context, cukes):
     try:
         context.belly.comer(float(cukes))
     except ValueError as e:
-        assert False, f"Error al comer pepinos: {e}"
+        context.exception = e  
 
 @when('espero {time_description}')
 def step_when_wait_time_description(context, time_description):
@@ -60,4 +60,5 @@ def step_then_belly_should_not_growl(context):
 
 @then('debería ver un error')
 def step_then_should_see_error(context):
-    assert context.failed is True
+    assert hasattr(context, "exception")
+    assert isinstance(context.exception, ValueError)
