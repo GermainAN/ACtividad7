@@ -17,3 +17,11 @@ Característica: Comportamiento del Estómago
     Cuando espero 2 horas
     Entonces mi estómago debería gruñir
 
+  Escenario: Comer una cantidad fraccionaria de pepinos
+    Dado que he comido 0.5 pepinos
+    Cuando espero 2 horas
+    Entonces mi estómago no debería gruñir
+
+  Escenario: Comer una cantidad negativa de pepinos
+    Dado que he comido -4 pepinos
+    Entonces debería ver un error
