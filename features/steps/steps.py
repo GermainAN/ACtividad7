@@ -1,5 +1,5 @@
 import re
-from obtener_aleatorio import obtener_tiempo_aleatorio
+from features.steps.obtener_aleatorio import obtener_tiempo_aleatorio
 from behave import given, when, then
 import re
 
