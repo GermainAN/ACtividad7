@@ -18,5 +18,8 @@ jobs:
           pip install -r requirements.txt
       - name: Run Behave
         run: behave
+      - name: Run Behave english
+        run: behave --tags=@english
       - name: Run Pytest
         run: python -m pytest
+        

@@ -25,3 +25,15 @@ Característica: Comportamiento del Estómago
   Escenario: Comer una cantidad negativa de pepinos
     Dado que he comido -4 pepinos
     Entonces debería ver un error
+
+  @english
+  Escenario: Esperar media hora en inglés
+    Dado que he comido 35 pepinos
+    Cuando espero "half hour"
+    Entonces mi estómago no debería gruñir
+
+  @english
+  Escenario: Comer muchos pepinos y gruñir
+    Dado que he comido 42 pepinos
+    Cuando espero "two hours"
+    Entonces mi estómago debería gruñir
