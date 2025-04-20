@@ -37,3 +37,8 @@ Característica: Comportamiento del Estómago
     Dado que he comido 42 pepinos
     Cuando espero "two hours"
     Entonces mi estómago debería gruñir
+  
+  Escenario: Comer pepinos y esperar un tiempo aleatorio
+    Dado que he comido 24 pepinos
+    Cuando espero un tiempo aleatorio entre 1 y 3 horas
+    Entonces mi estómago debería gruñir

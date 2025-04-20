@@ -1,3 +1,5 @@
+import re
+from obtener_aleatorio import obtener_tiempo_aleatorio
 from behave import given, when, then
 import re
 
@@ -37,7 +39,9 @@ def step_when_wait_time_description(context, time_description):
     time_description = time_description.replace('and', ' ')
     time_description = time_description.strip()
 
-    if time_description == ['media hora', 'half hour']:
+    if "entre" in time_description:
+        total_time_in_hours = obtener_tiempo_aleatorio(time_description, seed=None)
+    elif time_description in ['media hora', 'half hour']:
         total_time_in_hours = 0.5
     else:
         pattern = re.compile(r'(?:(\w+)\s*(?:hora|horas|hour|hours)?)?\s*(?:(\w+)\s*(?:minuto|minutos|minute|minutes)?)?\s*(?:(\w+)\s*(?:segundo|segundos|second|seconds)?)?')
@@ -55,7 +59,7 @@ def step_when_wait_time_description(context, time_description):
             total_time_in_hours = hours + (minutes / 60) + (seconds/ 3600)
         else:
             raise ValueError(f"No se pudo interpretar la descripción del tiempo: {time_description}")
-            
+
     context.belly.esperar(total_time_in_hours)
 
 @then('mi estómago debería gruñir')
